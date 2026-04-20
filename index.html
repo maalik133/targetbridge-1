@@ -1,359 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>$500 Target Gift Card</title>
-  <style>
-    :root {
-      --target-red: #cc0000;
-      --target-red-dark: #a30000;
-      --bg: #f4f4f4;
-      --card: #ffffff;
-      --border: #e3e3e3;
-      --text: #111111;
-      --muted: #666666;
-      --shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-      --radius: 16px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>$500 Target Gift Card</title>
 
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #111;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 25px 16px;
+}
 
-    .wrap {
-      width: 100%;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 28px 18px 40px;
-    }
+/* BRAND */
+.brand {
+  text-align: center;
+  color: #cc0000;
+  font-size: 34px;
+  font-weight: 800;
+}
 
-    .brand {
-      text-align: center;
-      color: var(--target-red);
-      font-size: 34px;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
+.brand-line {
+  width: 60px;
+  height: 4px;
+  background: #cc0000;
+  margin: 8px auto 20px;
+  border-radius: 10px;
+}
 
-    .brand-line {
-      width: 62px;
-      height: 4px;
-      border-radius: 999px;
-      background: var(--target-red);
-      margin: 0 auto 22px;
-    }
+/* HEADLINE */
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin: 0 0 8px;
+}
 
-    h1 {
-      text-align: center;
-      font-size: 24px;
-      line-height: 1.2;
-      margin: 0 0 10px;
-      font-weight: 800;
-    }
+.sub {
+  text-align: center;
+  color: #555;
+  margin-bottom: 25px;
+}
 
-    .sub {
-      text-align: center;
-      font-size: 16px;
-      color: #444;
-      margin-bottom: 26px;
-    }
+/* STEPS */
+.step-box {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
 
-    .steps {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
+.step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #cc0000;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .step {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: #fafafa;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 18px;
-    }
+.step-text {
+  font-weight: 700;
+}
 
-    .step-num {
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      border-radius: 999px;
-      background: var(--target-red);
-      color: #fff;
-      font-size: 20px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* CTA (completely isolated) */
+.big-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
 
-    .step-text {
-      font-size: 17px;
-      font-weight: 700;
-      line-height: 1.3;
-    }
+  background: linear-gradient(180deg, #ff1a1a, #cc0000);
+  color: white;
 
-    .cta-wrap {
-      margin: 18px 0 16px;
-    }
+  font-size: 24px;
+  font-weight: 800;
 
-    .cta {
-      display: block;
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      background: linear-gradient(180deg, #e60000 0%, #cc0000 100%);
-      color: #ffffff;
-      font-size: 26px;
-      font-weight: 800;
-      padding: 22px 18px;
-      border-radius: 16px;
-      border: none;
-      box-shadow:
-        0 10px 24px rgba(204, 0, 0, 0.22),
-        inset 0 1px 0 rgba(255,255,255,0.18);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
+  padding: 20px;
+  border-radius: 14px;
 
-    .cta:hover {
-      background: linear-gradient(180deg, #f01414 0%, #cc0000 100%);
-      box-shadow:
-        0 12px 28px rgba(204, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255,255,255,0.2);
-    }
+  text-decoration: none;
 
-    .cta:active {
-      transform: scale(0.985);
-    }
+  box-shadow: 0 8px 20px rgba(204,0,0,0.25);
 
-    .fine {
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.5;
-      color: #555;
-      margin-bottom: 30px;
-    }
+  transition: all 0.15s ease;
+}
 
-    h2 {
-      font-size: 18px;
-      font-weight: 800;
-      margin: 0 0 14px;
-    }
+.big-btn:active {
+  transform: scale(0.97);
+}
 
-    .faq {
-      display: grid;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
+/* TEXT */
+.fine {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  margin: 15px 0 25px;
+}
 
-    details {
-      background: #fafafa;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
+/* FAQ */
+h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
 
-    summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 16px 18px;
-      font-size: 16px;
-      font-weight: 700;
-      position: relative;
-    }
+.faq-item {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 14px;
+  font-weight: 700;
+}
 
-    summary::-webkit-details-marker {
-      display: none;
-    }
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 20px;
+}
 
-    summary::after {
-      content: "⌄";
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 20px;
-      color: #666;
-    }
-
-    details[open] summary::after {
-      content: "⌃";
-    }
-
-    .faq-content {
-      padding: 0 18px 16px;
-      font-size: 15px;
-      line-height: 1.55;
-      color: var(--muted);
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .footer a {
-      color: var(--target-red);
-      text-decoration: none;
-      font-weight: 700;
-      margin: 0 8px;
-    }
-
-    @media (max-width: 640px) {
-      .wrap {
-        padding: 24px 14px 34px;
-      }
-
-      .brand {
-        font-size: 30px;
-      }
-
-      h1 {
-        font-size: 22px;
-      }
-
-      .sub {
-        font-size: 15px;
-      }
-
-      .step-text {
-        font-size: 16px;
-      }
-
-      .cta {
-        font-size: 22px;
-        padding: 20px 16px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .brand {
-        font-size: 28px;
-      }
-
-      h1 {
-        font-size: 20px;
-      }
-
-      .sub {
-        font-size: 14px;
-      }
-
-      .step {
-        padding: 15px 14px;
-      }
-
-      .step-num {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
-        font-size: 18px;
-      }
-
-      .step-text {
-        font-size: 15px;
-      }
-
-      .cta {
-        font-size: 20px;
-        padding: 18px 14px;
-      }
-
-      summary {
-        font-size: 15px;
-      }
-    }
-  </style>
+.footer a {
+  color: #cc0000;
+  text-decoration: none;
+  margin: 0 6px;
+}
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="brand">Target</div>
-    <div class="brand-line"></div>
 
-    <h1>Complete Your Registration</h1>
-    <div class="sub">
-      Follow these simple steps to claim your $500 Target gift card
-    </div>
+<div class="container">
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text">Click on "Claim Now"</div>
-      </div>
+  <div class="brand">Target</div>
+  <div class="brand-line"></div>
 
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text">Enter your email and basic info</div>
-      </div>
+  <h1>Complete Your Registration</h1>
+  <div class="sub">Follow these steps to claim your $500 Target gift card</div>
 
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text">Complete 3–5 sponsored deals</div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-text">Receive your $500 Target gift card</div>
-      </div>
-    </div>
-
-    <div class="cta-wrap">
-      <a href="https://trksy.org/aff_c?offer_id=317&aff_id=170653">CLAIM NOW</a>
-    </div>
-
-    <div class="fine">
-      By clicking "Claim Now", you agree to complete the required steps to receive your gift card.
-    </div>
-
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq">
-      <details>
-        <summary>How long do the deals take?</summary>
-        <div class="faq-content">
-          Completion time depends on the offers selected and how quickly each step is finished.
-        </div>
-      </details>
-
-      <details>
-        <summary>What are deals?</summary>
-        <div class="faq-content">
-          Deals may include app installs, surveys, or partner offers required to unlock the reward.
-        </div>
-      </details>
-
-      <details>
-        <summary>How many deals do I have to do?</summary>
-        <div class="faq-content">
-          Most users complete 3–5 required deals depending on their offer path.
-        </div>
-      </details>
-
-      <details>
-        <summary>When will I receive my reward?</summary>
-        <div class="faq-content">
-          After completing all required steps successfully, you can proceed to claim your reward.
-        </div>
-      </details>
-    </div>
-
-    <div class="footer">
-      <a href="#">User Agreement</a> •
-      <a href="#">Privacy Policy</a> •
-      <a href="#">Target.com</a>
-    </div>
+  <div class="step-box">
+    <div class="step-num">1</div>
+    <div class="step-text">Click "Claim Now"</div>
   </div>
+
+  <div class="step-box">
+    <div class="step-num">2</div>
+    <div class="step-text">Enter your basic info</div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">3</div>
+    <div class="step-text">Complete 3–5 deals</div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">4</div>
+    <div class="step-text">Receive your $500 gift card</div>
+  </div>
+
+  <!-- CTA -->
+  <a href="https://giftclick.org/aff_c?offer_id=317&aff_id=170653" class="big-btn">
+    CLAIM NOW →
+  </a>
+
+  <div class="fine">
+    By clicking, you agree to complete the required steps to receive your reward.
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">How long do the deals take?</div>
+  <div class="faq-item">What are deals?</div>
+  <div class="faq-item">How many deals do I have to do?</div>
+  <div class="faq-item">When will I receive my reward?</div>
+
+  <div class="footer">
+    <a href="#">User Agreement</a> •
+    <a href="#">Privacy Policy</a> •
+    <a href="#">Target.com</a>
+  </div>
+
+</div>
+
 </body>
 </html>
