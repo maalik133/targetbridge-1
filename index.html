@@ -3,136 +3,173 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claim up to a $500 Target Gift Card</title>
+  <title>$500 Target Gift Card</title>
   <style>
+    :root {
+      --bg: #f4f4f4;
+      --card: #ffffff;
+      --border: #dedede;
+      --text: #111111;
+      --muted: #666666;
+      --red: #cc0000;
+      --pill: #fff5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #111;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    .progress-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: #f4f4f4;
-      padding-top: 8px;
+    .page {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 0 12px 32px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 14px 16px 22px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: var(--pill);
+      border: 1px solid #efcfcf;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
     }
 
     .progress {
       width: 100%;
-      max-width: 650px;
-      margin: 0 auto;
       height: 6px;
-      background: #e5e5e5;
+      background: #f0dede;
       border-radius: 999px;
       overflow: hidden;
+      margin-bottom: 18px;
     }
 
     .progress-bar {
-      width: 0%;
+      width: 22%;
       height: 100%;
       background: linear-gradient(90deg, #e60000, #cc0000);
       transition: width 0.25s ease;
     }
 
-    .container {
-      max-width: 650px;
-      margin: 0 auto;
-      padding: 25px 16px 40px;
-    }
-
-    .brand {
-      text-align: center;
-      color: #cc0000;
-      font-size: 34px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .brand-line {
-      width: 60px;
-      height: 4px;
-      background: #cc0000;
-      margin: 0 auto 20px;
-      border-radius: 10px;
-    }
-
     h1 {
-      text-align: center;
-      font-size: 24px;
-      margin: 0 0 8px;
-      line-height: 1.2;
+      font-size: 28px;
+      line-height: 1.15;
+      margin: 0 0 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #111;
     }
 
     .sub {
-      text-align: center;
-      color: #555;
-      margin-bottom: 25px;
-      font-size: 15px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 18px;
     }
 
-    .step-box {
-      background: #fff;
-      border: 1px solid #e3e3e3;
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 12px;
+    .box {
       display: flex;
-      align-items: center;
-      gap: 14px;
+      gap: 12px;
+      align-items: flex-start;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 14px;
+      margin-bottom: 12px;
     }
 
-    .step-num {
-      width: 36px;
-      height: 36px;
+    .icon {
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
       border-radius: 50%;
-      background: #cc0000;
+      background: var(--red);
       color: #fff;
-      font-weight: bold;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .step-text {
+      font-size: 15px;
       font-weight: 700;
-      font-size: 16px;
+      margin-top: 1px;
     }
 
-    .big-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      margin-top: 20px;
-      background: linear-gradient(180deg, #ff1a1a, #cc0000);
-      color: white;
-      font-size: 24px;
+    .box h3 {
+      margin: 0 0 5px;
+      font-size: 15px;
+      line-height: 1.25;
       font-weight: 800;
-      padding: 20px;
-      border-radius: 14px;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(204,0,0,0.25);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .big-btn:active {
-      transform: scale(0.98);
+    .box p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .center-note {
+      text-align: center;
+      font-size: 14px;
+      margin: 14px 0 14px;
+      color: var(--text);
+    }
+
+    .cta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 58px;
+      border-radius: 16px;
+      background: #cc0000;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 800;
+      box-shadow: 0 10px 22px rgba(204,0,0,0.14);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .cta:active {
+      transform: scale(0.985);
     }
 
     .fine {
       text-align: center;
-      font-size: 13px;
-      color: #666;
-      margin: 15px 0 25px;
-      line-height: 1.5;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 12px;
+      margin-bottom: 20px;
     }
 
-    h2 {
+    .faq-title {
       font-size: 18px;
-      margin-bottom: 12px;
+      font-weight: 800;
+      margin: 0 0 12px;
     }
 
     .faq {
@@ -141,9 +178,9 @@
     }
 
     details {
+      border: 1px solid var(--border);
+      border-radius: 14px;
       background: #fff;
-      border: 1px solid #e3e3e3;
-      border-radius: 10px;
       overflow: hidden;
     }
 
@@ -151,6 +188,7 @@
       list-style: none;
       cursor: pointer;
       padding: 14px;
+      font-size: 14px;
       font-weight: 700;
       position: relative;
     }
@@ -176,118 +214,116 @@
 
     .faq-content {
       padding: 0 14px 14px;
-      color: #666;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .footer {
-      text-align: center;
+      color: var(--muted);
       font-size: 13px;
-      margin-top: 20px;
-    }
-
-    .footer a {
-      color: #cc0000;
-      text-decoration: none;
-      margin: 0 6px;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <div class="progress-wrap">
-    <div class="progress">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-  </div>
+  <div class="page">
+    <div class="card">
 
-  <div class="container">
-    <div class="brand">Target</div>
-    <div class="brand-line"></div>
+      <div class="topbar">
+        <div class="pill" id="stepText">Step 1 of 2</div>
+        <div class="pill">$500 Target Gift Card</div>
+      </div>
 
-    <h1>Claim up to a $500 Target Gift Card</h1>
-    <div class="sub">Follow these steps to continue and see what’s required next.</div>
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
 
-    <div class="step-box">
-      <div class="step-num">1</div>
-      <div class="step-text">Click "Claim Now"</div>
-    </div>
+      <h1>Complete the steps below to receive your $500 Target Gift Card.</h1>
+      <div class="sub">This quick page explains what to expect on the next step.</div>
 
-    <div class="step-box">
-      <div class="step-num">2</div>
-      <div class="step-text">Enter your basic info</div>
-    </div>
-
-    <div class="step-box">
-      <div class="step-num">3</div>
-      <div class="step-text">Complete 4–5 deals</div>
-    </div>
-
-    <div class="step-box">
-      <div class="step-num">4</div>
-      <div class="step-text">Unlock your reward</div>
-    </div>
-
-    <a href="https://giftclick.org/aff_c?offer_id=317&aff_id=170653" class="big-btn" id="claimBtn">CLAIM NOW →</a>
-
-    <div class="fine">
-      By clicking, you agree to complete the required steps to continue.
-    </div>
-
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq">
-      <details>
-        <summary>How long do the deals take?</summary>
-        <div class="faq-content">
-          The time can vary depending on which offers you choose and how quickly you complete each step.
+      <div class="box">
+        <div class="icon">✓</div>
+        <div>
+          <h3>Complete 4–5 required deals</h3>
+          <p>Includes app installs, surveys, or trial offers.</p>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>What are deals?</summary>
-        <div class="faq-content">
-          Deals are promotional partner offers that may include surveys, app installs, subscriptions, or service trials.
+      <div class="box">
+        <div class="icon">✓</div>
+        <div>
+          <h3>Use a valid email address</h3>
+          <p>Used for updates and tracking your progress.</p>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>How many deals do I have to do?</summary>
-        <div class="faq-content">
-          Most users are required to complete between 4 and 5 deals, though the exact number may vary by offer path.
+      <div class="box">
+        <div class="icon">✓</div>
+        <div>
+          <h3>Must be 18+ to participate</h3>
+          <p>Eligibility and offer paths may vary by user.</p>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>When will I receive my reward?</summary>
-        <div class="faq-content">
-          After all required steps are successfully completed and verified, you can move forward in the process to claim your reward.
+      <div class="box">
+        <div>
+          <h3>What happens next?</h3>
+          <p>You’ll continue to the next page to begin completing the required steps.</p>
         </div>
-      </details>
-    </div>
+      </div>
 
-    <div class="footer">
-      <a href="#">User Agreement</a> •
-      <a href="#">Privacy Policy</a> •
-      <a href="#">Target.com</a>
+      <div class="center-note">Tap below to continue and start the steps.</div>
+
+      <a href="https://trksy.org/aff_c?offer_id=317&aff_id=170653" class="cta" id="claimBtn">Continue to Next Step →</a>
+
+      <div class="fine">Eligibility and completion requirements apply.</div>
+
+      <div class="faq-title">Frequently Asked Questions</div>
+
+      <div class="faq">
+        <details>
+          <summary>How long do the deals take?</summary>
+          <div class="faq-content">
+            Completion time varies based on the offers shown and how quickly each step is completed.
+          </div>
+        </details>
+
+        <details>
+          <summary>What are deals?</summary>
+          <div class="faq-content">
+            Deals may include app installs, surveys, subscriptions, or partner trial offers required as part of the process.
+          </div>
+        </details>
+
+        <details>
+          <summary>How many deals do I have to do?</summary>
+          <div class="faq-content">
+            Most users are required to complete 4–5 deals, although the exact path may vary.
+          </div>
+        </details>
+
+        <details>
+          <summary>When will I receive my reward?</summary>
+          <div class="faq-content">
+            After all required steps are completed and verified, you can move forward in the process to claim your reward.
+          </div>
+        </details>
+      </div>
+
     </div>
   </div>
 
   <script>
     const progressBar = document.getElementById("progressBar");
     const claimBtn = document.getElementById("claimBtn");
+    const stepText = document.getElementById("stepText");
 
     function updateProgress() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
       if (docHeight <= 0) {
-        progressBar.style.width = "50%";
+        progressBar.style.width = "55%";
         return;
       }
 
       const scrollPercent = Math.min(scrollTop / docHeight, 1);
-      const width = 20 + (scrollPercent * 65);
+      const width = 22 + (scrollPercent * 58);
       progressBar.style.width = width + "%";
     }
 
@@ -296,6 +332,7 @@
 
     claimBtn.addEventListener("click", function () {
       progressBar.style.width = "100%";
+      stepText.textContent = "Step 2 of 2";
     });
   </script>
 </body>
